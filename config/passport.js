@@ -60,7 +60,8 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "/api/auth/google/callback",
+    callbackURL: "https://backend-5nex.onrender.com/api/auth/google/callback"
+
     },
     (accessToken, refreshToken, profile, done) =>
       handleSocialLogin(profile, done)
@@ -73,7 +74,8 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "/api/auth/github/callback",
+      callbackURL: "https://backend-5nex.onrender.com/api/auth/github/callback",
+
       scope: ["user:email"],
     },
     (accessToken, refreshToken, profile, done) =>

@@ -54,35 +54,35 @@ const handleSocialLogin = async (profile, done) => {
   }
 };
 
-// Google
+// GOOGLE STRATEGY
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://backend-5nex.onrender.com/api/auth/google/callback"
-
+      callbackURL: "https://backend-5nex.onrender.com/api/auth/google/callback",
+      proxy: true   // ← IMPORTANT for Render HTTPS
     },
     (accessToken, refreshToken, profile, done) =>
       handleSocialLogin(profile, done)
   )
 );
 
-// GitHub
+// GITHUB STRATEGY
 passport.use(
   new GitHubStrategy(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
       callbackURL: "https://backend-5nex.onrender.com/api/auth/github/callback",
-
-      scope: ["user:email"],
+      proxy: true,  // ← IMPORTANT for Render HTTPS
+      scope: ["user:email"]
     },
     (accessToken, refreshToken, profile, done) =>
       handleSocialLogin(profile, done)
   )
 );
 
-// LinkedIn
+// LinkedIn can go here later
 
 module.exports = passport;

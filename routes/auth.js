@@ -78,7 +78,8 @@ router.post('/login', async (req, res) => {
 const socialAuthCallback = async (req, res) => {
   try {
     const token = await signToken(req.user);
-    res.redirect(`http://localhost:5173/dashboard?token=${token}`);
+   res.redirect(`${process.env.CLIENT_URL}/dashboard?token=${token}`);
+
   } catch (err) {
     console.error(err.message);
     res.redirect('/');

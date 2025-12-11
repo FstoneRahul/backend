@@ -11,7 +11,8 @@ const app = express();
 app.use(cors({
   origin: [
     "http://localhost:5173",
-    "https://frontend-lyart-two-29.vercel.app"
+    "https://frontend-lyart-two-29.vercel.app",
+    "https://fstonetechnologies.com"
   ],
   methods: "GET,POST,PUT,DELETE",
   credentials: true

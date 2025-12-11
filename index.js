@@ -33,6 +33,7 @@ require('./config/passport');
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/ftp', require('./routes/ftp'));
+app.use('/api/contact', require('./routes/contact'));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI).then(() => console.log('MongoDB connected'))
